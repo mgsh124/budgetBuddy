@@ -1,0 +1,18 @@
+table {
+  display: table;
+  border: 1px solid #ddd;
+  border-spacing: 0;
+  min-width: 400px;
+  text-align: left;
+}
+table tr {
+  border-bottom: 1px solid #ddd;
+}
+table tr > th,
+table tr > td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+.content {
+  min-width: 500px;
+}

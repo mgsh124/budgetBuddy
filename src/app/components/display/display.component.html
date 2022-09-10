@@ -1,0 +1,22 @@
+<div class="content">
+  <h2>Expenses</h2>
+  <table *ngIf="expenses.length; else noexpenses">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of expenses">
+        <td>{{ item.description }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.amount | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noexpenses>
+  <p>You have no expenses</p>
+</ng-template>

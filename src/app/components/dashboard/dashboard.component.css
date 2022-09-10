@@ -1,0 +1,16 @@
+.progress {
+  color: #000 !important;
+  background-color: #f1f1f1 !important;
+  border-radius: 4px;
+}
+.progress > div {
+  color: #fff !important;
+  background-color: #2196f3 !important;
+  padding: 0.01em 1px;
+}
+.progress > div::before,
+.progress > div::after {
+  content: "";
+  display: table;
+  clear: both;
+}

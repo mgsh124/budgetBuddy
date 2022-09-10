@@ -1,0 +1,7 @@
+<div>
+  <h2>Total Expenses: {{ _totalExpenses$ | async | currency }}</h2>
+  <h2>Total Budget: {{ _totalBudget$ | async | currency }}</h2>
+  <div class="progress">
+    <div [ngStyle]="updateProgress()">&nbsp;</div>
+  </div>
+</div>

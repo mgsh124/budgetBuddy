@@ -1,0 +1,90 @@
+<form #expenseForm="ngForm" (ngSubmit)="submitForm()">
+  <p>
+    <label for="amount">Amount</label>
+    <input
+      #amount="ngModel"
+      type="number"
+      id="amount"
+      name="amount"
+      required
+      min="1"
+      [(ngModel)]="expense.amount"
+    />
+  </p>
+  <div
+    *ngIf="!amount?.valid && (amount?.dirty || amount?.touched)"
+    class="error"
+  >
+    <div *ngIf="amount.errors?.['required']">Amount is required</div>
+    <div *ngIf="amount.errors?.['min']">Amount need to greater than 0</div>
+  </div>
+  <p>
+    <label for="description">Description</label>
+    <input
+      #desc="ngModel"
+      type="text"
+      id="description"
+      name="description"
+      required
+      minlength="3"
+      [(ngModel)]="expense.description"
+    />
+  </p>
+  <div *ngIf="!desc?.valid && (desc?.dirty || desc?.touched)" class="error">
+    <div *ngIf="desc.errors?.['required']">Description is required</div>
+    <div *ngIf="desc.errors?.['minlength']">
+      Description minimun length is
+      {{desc.errors?.['minlength'].requiredLength}}
+    </div>
+  </div>
+  <p>
+    <label for="category">Category</label>
+    <select
+      [(ngModel)]="expense.category"
+      id="category"
+      name="category"
+      required
+      #category="ngModel"
+    >
+      <option *ngFor="let item of categories" [value]="item">
+        {{ item }}
+      </option>
+    </select>
+  </p>
+  <div
+    *ngIf="!category?.valid && (category?.dirty || category?.touched)"
+    class="error"
+  >
+    <div *ngIf="category.errors?.['required']">Category is required</div>
+  </div>
+  <p>
+    <label for="">&nbsp;</label>
+    <button type="submit" [disabled]="!expenseForm.valid">Add Expense</button>
+  </p>
+</form>
+
+<form #budgetForm="ngForm" (ngSubmit)="setBudget()">
+  <p>
+    <label for="totalBudget">Budget</label>
+    <input
+      #budget="ngModel"
+      type="number"
+      id="totalBudget"
+      name="totalBudget"
+      required
+      min="1"
+      [(ngModel)]="totalBudget"
+    />
+  </p>
+  <div
+    *ngIf="!budget?.valid && (budget?.dirty || budget?.touched)"
+    class="error"
+  >
+    <div *ngIf="budget.errors?.['required']">Amount is required</div>
+    <div *ngIf="budget.errors?.['min']">Amount need to greater than 0</div>
+  </div>
+  <p>
+    <label for="">&nbsp;</label>
+    <button type="submit" [disabled]="!budgetForm.valid">Set Budget</button>
+  </p>
+</form>

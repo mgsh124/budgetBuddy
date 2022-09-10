@@ -1,0 +1,29 @@
+form {
+  padding: 20px;
+  border: 1px solid;
+  margin: 10px auto;
+}
+form label {
+  min-width: 95px;
+  display: inline-block;
+}
+#category {
+  width: 192px;
+}
+button[type="submit"] {
+  padding: 6px;
+  background-color: #1681d0;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+button[type="submit"][disabled] {
+  background-color: white;
+  color: #1681d0;
+  border: 1px solid #ddd;
+  cursor: not-allowed;
+}
+form .error {
+  color: red;
+}
